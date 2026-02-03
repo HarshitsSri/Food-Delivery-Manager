@@ -20,6 +20,7 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization']
 };
 app.use(cors(corsOptions));
+app.options('*', cors());
 
 if (process.env.NODE_ENV !== 'production') {
   app.use((req, res, next) => {
