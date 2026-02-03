@@ -24,6 +24,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.options('*', cors());
+console.log('CORS origin allowed:', process.env.FRONTEND_URL);
 
 if (process.env.NODE_ENV !== 'production') {
   app.use((req, res, next) => {
