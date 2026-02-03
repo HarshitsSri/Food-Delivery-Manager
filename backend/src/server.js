@@ -13,16 +13,11 @@ connectDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const corsOptions = {
-  origin: [
-    'https://food-delivery-manager.vercel.app',
-    'http://localhost:5173'
-  ],
-    credentials: true,
+app.use(cors({
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
-};
-app.use(cors(corsOptions));
+}));
 app.options('*', cors());
 console.log('CORS origin allowed:', process.env.FRONTEND_URL);
 
